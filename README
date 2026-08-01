@@ -1,1 +1,11 @@
 Received in github
+class OrderCreate(BaseModel):
+    model_config = ConfigDict(
+        extra="forbid",              # reject unexpected fields
+        str_strip_whitespace=True,   # clean input
+        populate_by_name=True,       # accept camelCase or snake_case
+        frozen=True,                 # immutable once created
+    )
+    
+    customer_id: str = Field(alias="customerId")
+    quantity: int
