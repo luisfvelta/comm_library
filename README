@@ -9,3 +9,7 @@ class OrderCreate(BaseModel):
     
     customer_id: str = Field(alias="customerId")
     quantity: int
+
+"""
+Think of ConfigDict as answering: "How strict/flexible should this model be about input it receives, and how should it behave after creation?" You reach for it whenever you're integrating with something outside your control — external APIs, ORMs, forms, or JSON with different naming conventions — rather than for defining the fields themselves (that's what type hints and Field() are for).
+"""
